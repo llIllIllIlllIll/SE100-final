@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+
+</head>
+
+<body class="docs">
+    <div id="app">
+        {{message}}  <!--把vue绑定到了dom文本-->
+    </div>
+
+    <div id="app-2">
+        <span v-bind:title="message">  
+            Put your mouse pointer here...
+        </span>
+    </div>
+
+    <div id="app-3">
+        <span v-if="seen">   <!-- span or p doesn't matter-->
+            Now I'm here
+        </span>  
+    </div>
+
+    <div id="app-4">
+        <ol>
+            <li v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ol>
+    </div>
+
+    <div id="app-5">
+        <p>{{message}}</p>
+        <button v-on:click="reverseMessage">逆转消息</button>
+    </div>
+
+    <div id="app-6">
+        <p>{{message}}</p>
+        <input v-model="message">
+    </div>
+
+    <div id="app-7">
+        <ol>
+            <todo-item 
+                v-for="item in List"
+                v-bind:todo="item"
+                v-bind:key="item.id">
+            </todo-item>
+        </ol>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
