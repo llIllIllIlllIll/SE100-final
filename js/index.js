@@ -15,11 +15,36 @@ var app_header_bar=new Vue({
 var app_upload_content=new Vue({
     el:'#main',
     data:{
-        uploadContent:"<p>上传要识别的图片..</p>"
+        uploadContent:"<p>上传要识别的图片..</p>",
+        img_width:600,
+        img_height:380,
+        img:new Image()
     },
     methods:{
-        preview(event){
-            this.uploadContent = '<img src ="https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=c6e1fee0b40e7bec37d70bb34e47d25d/0e2442a7d933c8952ea37294dd1373f083020004.jpg"/>';
-        }
-    }
+        /*preview(event){
+            this.uploadContent = '<img src ="http://cdn.03.k618.cn/pics/YVQ3RUEgF0BYPQtsFl9iSAMcfBVxFF5mTQICfBVvFl1kTAJsdxFnE1l5EkJUYhJmFkJn.jpg"/>';
+            this.setSize();
+        },
+        setSize:function(){
+            this.img.src="http://cdn.03.k618.cn/pics/YVQ3RUEgF0BYPQtsFl9iSAMcfBVxFF5mTQICfBVvFl1kTAJsdxFnE1l5EkJUYhJmFkJn.jpg";
+            this.img_height=this.img.height;
+            this.img_width=this.img.width;
+    }*/
+}
 })
+//这个用了传统的html和vue混合使用 因为读图片有点麻烦
+var inputBox = document.getElementById("image");
+inputBox.addEventListener("change",function(){
+  var reader = new FileReader();
+  reader.readAsDataURL(inputBox.files[0]);
+  reader.onload=function(e){  
+    app_upload_content.uploadContent='<img src="' + this.result +'" alt="" />';
+    app_upload_content.img.src= this.result;
+    app_upload_content.img.onload=function(){
+        app_upload_content.img_height=app_upload_content.img.height;
+        app_upload_content.img_width=app_upload_content.img.width;
+    }
+} 
+})
+
+
