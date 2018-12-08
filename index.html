@@ -24,10 +24,8 @@
     </ul>
 </div>
 
-<div id="main" class="fix-sidebar">
-    <!--上传并显示图片，识别-->
-    <!-- css line:566-->
-    <div id = "upload" v-html="uploadContent" >
+<div id="main" class="fix-sidebar"> 
+    <div id = "upload" v-html="uploadContent" v-bind:style="{ width: img_width + 'px', height: img_height + 'px'}">
         {{uploadContent}}
     </div>
     <div>   

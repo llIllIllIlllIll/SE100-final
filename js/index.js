@@ -15,11 +15,20 @@ var app_header_bar=new Vue({
 var app_upload_content=new Vue({
     el:'#main',
     data:{
-        uploadContent:"<p>上传要识别的图片..</p>"
+        uploadContent:"<p>上传要识别的图片..</p>",
+        img_width:600,
+        img_height:380,
+        img:new Image()
     },
     methods:{
         preview(event){
-            this.uploadContent = '<img src ="https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=c6e1fee0b40e7bec37d70bb34e47d25d/0e2442a7d933c8952ea37294dd1373f083020004.jpg"/>';
-        }
+            this.uploadContent = '<img src ="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544258639284&di=f61951b8d57fa18efc491448374701c5&imgtype=0&src=http%3A%2F%2Fn1.itc.cn%2Fimg8%2Fwb%2Frecom%2F2016%2F05%2F22%2F146390453573413466.PNG"/>';
+            this.setSize();
+        },
+        setSize:function(){
+            this.img.src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544258639284&di=f61951b8d57fa18efc491448374701c5&imgtype=0&src=http%3A%2F%2Fn1.itc.cn%2Fimg8%2Fwb%2Frecom%2F2016%2F05%2F22%2F146390453573413466.PNG";
+            this.img_height=this.img.height;
+            this.img_width=this.img.width;
     }
+}
 })
