@@ -21,14 +21,30 @@ var app_upload_content=new Vue({
         img:new Image()
     },
     methods:{
-        preview(event){
-            this.uploadContent = '<img src ="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544258639284&di=f61951b8d57fa18efc491448374701c5&imgtype=0&src=http%3A%2F%2Fn1.itc.cn%2Fimg8%2Fwb%2Frecom%2F2016%2F05%2F22%2F146390453573413466.PNG"/>';
+        /*preview(event){
+            this.uploadContent = '<img src ="http://cdn.03.k618.cn/pics/YVQ3RUEgF0BYPQtsFl9iSAMcfBVxFF5mTQICfBVvFl1kTAJsdxFnE1l5EkJUYhJmFkJn.jpg"/>';
             this.setSize();
         },
         setSize:function(){
-            this.img.src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544258639284&di=f61951b8d57fa18efc491448374701c5&imgtype=0&src=http%3A%2F%2Fn1.itc.cn%2Fimg8%2Fwb%2Frecom%2F2016%2F05%2F22%2F146390453573413466.PNG";
+            this.img.src="http://cdn.03.k618.cn/pics/YVQ3RUEgF0BYPQtsFl9iSAMcfBVxFF5mTQICfBVvFl1kTAJsdxFnE1l5EkJUYhJmFkJn.jpg";
             this.img_height=this.img.height;
             this.img_width=this.img.width;
-    }
+    }*/
 }
 })
+//这个用了传统的html和vue混合使用 因为读图片有点麻烦
+var inputBox = document.getElementById("image");
+inputBox.addEventListener("change",function(){
+  var reader = new FileReader();
+  reader.readAsDataURL(inputBox.files[0]);
+  reader.onload=function(e){  
+    app_upload_content.uploadContent='<img src="' + this.result +'" alt="" />';
+    app_upload_content.img.src= this.result;
+    app_upload_content.img.onload=function(){
+        app_upload_content.img_height=app_upload_content.img.height;
+        app_upload_content.img_width=app_upload_content.img.width;
+    }
+} 
+})
+
+
