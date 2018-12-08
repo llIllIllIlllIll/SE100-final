@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Rwrite</title>
     <link rel="stylesheet" type="text/css" href="css/page.css">
-    <script type="text/javascript" src="js/code.js"></script>
 
 </head>
 <body class="docs">
@@ -30,11 +29,24 @@
     </div>
     <div>   
         <label class="upload-label">
-            <input type="file" id="image" style="display:none" name="image" >上传图片</label>
-        <label class="upload-label">识别</label>
+            <input type="file" id="image" style="display:none" name="image"  >上传图片</label>
+        <label class="upload-label">
+            <input type="checkbox" id="textRst" style="display:none" >识别</label>
     </div>
 </div>
 
+<hr id="cut-line" v-bind:style="{display: cut_line}"></hr>
+
+
+<div id="results" class="fix-sidebar">
+    <div id = "text-results" v-html="results" v-bind:style="{width: result_width + 'px', height: result_height + 'px'}">
+        {{results}}
+    </div>
+</div>
+
+<div id="analysisi"></div>
+
+<h1></h1>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/index.js"></script>
