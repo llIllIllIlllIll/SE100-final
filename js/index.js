@@ -33,10 +33,10 @@ var app_upload_content=new Vue({
 }
 })
 //这个用了传统的html和vue混合使用 因为读图片有点麻烦
-var inputBox = document.getElementById("image");
-inputBox.addEventListener("change",function(){
+var inputImg = document.getElementById("image");
+inputImg.addEventListener("change",function(){
   var reader = new FileReader();
-  reader.readAsDataURL(inputBox.files[0]);
+  reader.readAsDataURL(inputImg.files[0]);
   reader.onload=function(e){  
     app_upload_content.uploadContent='<img src="' + this.result +'" alt="" />';
     app_upload_content.img.src= this.result;
@@ -47,4 +47,29 @@ inputBox.addEventListener("change",function(){
 } 
 })
 
+var app_text_result=new Vue({
+    el:"#text-results",
+    data:{
+        result_width: 0,
+        result_height: 0,
+        results: "尚未开始识别...",
+    },
+    methods:{
+
+    }
+})
+var app_cut_line=new Vue({
+    el:"#cut-line",
+    data:{
+        cut_line:"none"
+    }
+})
+
+var textRst=document.getElementById("textRst");
+textRst.addEventListener("change",function(){
+    app_text_result.result_width=app_upload_content.img_width;
+    app_text_result.result_height=app_upload_content.img_height;
+    app_cut_line.cut_line="block";
+    app_text_result.results='<img src="https://raw.githubusercontent.com/llIllIllIlllIll/SE100-final/master/results.jpg" alt="" />'
+})
 

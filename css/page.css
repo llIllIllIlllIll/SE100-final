@@ -574,6 +574,18 @@ body.docs #nav {
   margin:auto;
   margin-top:10px;
 }
+#text-results{
+  border: 1px solid #ccc;
+  width: 0px;
+  height: 0px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow:auto;
+  margin:auto;
+  margin-top:10px;
+  font-family: Helvetica, ‘Hiragino Sans GB’, ‘Microsoft Yahei’, ‘微软雅黑’, Arial, sans-serif;
+}
 
 #img_input {
   display: none;
@@ -1705,6 +1717,9 @@ ul.demo li {
     display: block;
   }
   #main {
+    padding: 2em 1.4em 0;
+  }
+  #results {
     padding: 2em 1.4em 0;
   }
   .highlight pre {
