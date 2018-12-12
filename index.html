@@ -25,8 +25,7 @@
 
 <div id="main" class="fix-sidebar"> 
     <div id = "upload" v-html="uploadContent" v-bind:style="{ width: img_width + 'px', height: img_height + 'px'}">
-        {{uploadContent}}
-    </div>
+        </div>
     <div>   
         <label class="upload-label">
             <input type="file" id="image" style="display:none" name="image"  >上传图片</label>
@@ -35,18 +34,48 @@
     </div>
 </div>
 
-<hr id="cut-line" v-bind:style="{display: cut_line}"></hr>
+<hr id="cut-line" v-if="showCutLine"></hr>
 
+<br>
+<br>
+<br>
 
 <div id="results" class="fix-sidebar">
-    <div id = "text-results" v-html="results" v-bind:style="{width: result_width + 'px', height: result_height + 'px'}">
-        {{results}}
+    <div id = "img-results" v-html="results" v-bind:style="{width: result_width + 'px', height: result_height + 'px'}">
     </div>
 </div>
 
-<div id="analysisi"></div>
+<br>
+<br>
+<br>
 
-<h1></h1>
+
+<div id="analysis" v-if="shown" class="center"> 
+    <div id="textArea" v-bind:style="{width: txt_width + 'px', height: txt_height + 'px'}">
+        <h3>学生：{{studentName}}</h3>
+        <h3>错误分析：</h3>
+        <ul>
+            <li
+                is="fault"
+                v-for="(analysis, index) in textAnalysis"
+                v-bind:key="analysis.id"
+                v-bind:text="analysis.text"
+                v-on:remove="textAnalysis.splice(index, 1)"
+                >
+            </li>
+        </ul>
+        <h3>老师评语：</h3>
+        <p>{{teacherFeedback}}</p>
+    </div>
+    <div align="center">
+        <input id="teacherInput" v-model="teacherFeedback" placeholder="请输入你的评语..." v-bind:style="{width: txt_width + 'px'}">
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/index.js"></script>

@@ -563,6 +563,28 @@ body.docs #nav {
 .nav-link.about {
   margin-left: 10px;
 }
+#textArea{
+  border: 1px solid #ccc;
+  width: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow:auto;
+  margin:auto;
+  margin-top:10px;
+}
+#teacherInput{
+  border: 1px solid #ccc;
+  width: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow:auto;
+  margin:auto;
+  margin-top:10px;
+  text-align:center;
+  vertical-align: middle;
+}
 #upload{
   border: 1px solid #ccc;
   width: 50%;
@@ -574,7 +596,7 @@ body.docs #nav {
   margin:auto;
   margin-top:10px;
 }
-#text-results{
+#img-results{
   border: 1px solid #ccc;
   width: 0px;
   height: 0px;
