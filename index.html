@@ -61,11 +61,14 @@
                 v-bind:key="analysis.id"
                 v-bind:text="analysis.text"
                 v-on:remove="textAnalysis.splice(index, 1)"
+                v-on:fault="faultRecount(index)"
                 >
             </li>
+            <br>
+            <button>上报选中的{{fault_count}}个识别错误</button>
         </ul>
         <h3>老师评语：</h3>
-        <p>{{teacherFeedback}}</p>
+        <p>{{'\n'+teacherFeedback}}</p>
     </div>
     <div align="center">
         <input id="teacherInput" v-model="teacherFeedback" placeholder="请输入你的评语..." v-bind:style="{width: txt_width + 'px'}">
