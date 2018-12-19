@@ -7,6 +7,7 @@ Vue.component("fault",{
     template:'\
     <li>{{text}}\
     <button v-on:click="$emit(\'remove\')">清除</button>\
+    <input type="checkbox" v-on:change="$emit(\'fault\')"></input>\
     </li>'
 })
 var app_header_bar=new Vue({
@@ -79,11 +80,6 @@ textRst.addEventListener("change",function(){
     app_cut_line.showCutLine=true;
     app_analysis.shown=true;
     app_img_result.results='<img src="https://raw.githubusercontent.com/llIllIllIlllIll/SE100-final/master/results.jpg" alt="" />'
-    /*app_analysis.textAnalysis="的：“叽叽喳喳的歌唱”，此处用字错误，应该为“地”; \n \
-    的：“悠然的摆动着”，此处用字错误，应该为“地”; \n \
-    稀：“猎杀珍惜动物”，此处字形错误，请仔细检查笔划书写; \n \
-    嚷：“那些嚷着要考”，此处字形错误，请仔细检查笔划书写; \n \
-    的：“更好的为人服务”，此处用字错误，请仔细检查笔划书写; \n "*/
 })
 
 var app_analysis=new Vue({
@@ -91,17 +87,32 @@ var app_analysis=new Vue({
     data:{
         txt_width:0,
         txt_height:0,
-        studentName:"小王",//like Li Hus
+        studentName:"范鹏",//like Li Hus
         textAnalysis:[
-            {id:1,text:"的：“叽叽喳喳的歌唱”，此处用字错误，应该为“地"},
-            {id:2,text:"的：“悠然的摆动着”，此处用字错误，应该为“地”"},
-            {id:3,text:"稀：“猎杀珍惜动物”，此处字形错误，请仔细检查笔划书写"},
-            {id:4,text:"嚷：“那些嚷着要考”，此处字形错误，请仔细检查笔划书写"},
-            {id:5,text:"的：“更好的为人服务”，此处用字错误，请仔细检查笔划书写"}
+            {id:1,text:"的：“叽叽喳喳的歌唱”，此处用字错误，应该为“地",state:true},
+            {id:2,text:"的：“悠然的摆动着”，此处用字错误，应该为“地”",state:true},
+            {id:3,text:"稀：“猎杀珍惜动物”，此处字形错误，请仔细检查笔划书写",state:true},
+            {id:4,text:"嚷：“那些嚷着要考”，此处字形错误，请仔细检查笔划书写",state:true},
+            {id:5,text:"的：“更好的为人服务”，此处用字错误，请仔细检查笔划书写",state:true}
         ],
         shown:false, //indicates when this analysis should be seen
-        teacherFeedback:"" //an input required from user(teacher here)
-
+        teacherFeedback:"", //an input required from user(teacher here)
+        fault_count:0,
+        uploaded:false
+    },
+    methods:{
+        faultRecount:function(index){
+            this.textAnalysis[index].state=!this.textAnalysis[index].state;
+            var i=0;var sum=0;
+            for(i=0;i<this.textAnalysis.length;i++)
+            {
+                if(this.textAnalysis[i].state==false)
+                {
+                    sum++;
+                }
+            }
+            this.fault_count=sum;
+        }
     }
 })
 
