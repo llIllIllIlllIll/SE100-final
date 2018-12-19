@@ -65,7 +65,10 @@
                 >
             </li>
             <br>
-            <button>上报选中的{{fault_count}}个识别错误</button>
+            <button v-on:click= "uploaded = true">上报选中的{{fault_count}}个识别错误</button>
+            <transition name="fade">
+                <p v-if="uploaded">上报成功！</p>
+            </transition>
         </ul>
         <h3>老师评语：</h3>
         <p>{{'\n'+teacherFeedback}}</p>

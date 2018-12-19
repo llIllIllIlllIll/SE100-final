@@ -97,7 +97,8 @@ var app_analysis=new Vue({
         ],
         shown:false, //indicates when this analysis should be seen
         teacherFeedback:"", //an input required from user(teacher here)
-        fault_count:0
+        fault_count:0,
+        uploaded:false
     },
     methods:{
         faultRecount:function(index){

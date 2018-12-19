@@ -924,6 +924,12 @@ ul.demo li {
 .main-sponsor a {
   width: 125px;
 }
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 .become-backer {
   border: 1px solid #42b983;
   border-radius: 2em;
