@@ -5,8 +5,8 @@ Vue.component("header-bar",{
 Vue.component("fault",{
     props:['text'],
     template:'\
-    <li>{{text}}\
-    <button v-on:click="$emit(\'remove\')">清除</button>\
+    <li >{{text}}\
+    <button v-on:click="$emit(\'remove\')" class="button button-tiny button-action button-pill">清除</button>\
     <input type="checkbox" v-on:change="$emit(\'fault\')"></input>\
     </li>'
 })
