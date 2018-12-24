@@ -117,4 +117,4 @@ var app_aboutUS=new Vue({
                 this.content="FTDR"
             }
         }
-    })
+})
