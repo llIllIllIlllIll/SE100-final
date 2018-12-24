@@ -46,31 +46,17 @@ inputImg.addEventListener("change",function(){
 } 
 })
 
-var app_img_result=new Vue({
-    el:"#img-results",
-    data:{
-        result_width: 0,
-        result_height: 0,
-        results: "尚未开始识别...",
-    },
-    methods:{
 
-    }
-})
-var app_cut_line=new Vue({
-    el:"#cut-line",
-    data:{
-        showCutLine:false
-    }
-})
 
 var textRst=document.getElementById("textRst");
 textRst.addEventListener("change",function(){
-    app_analysis.txt_width=app_img_result.result_width=app_upload_content.img_width;
-    app_analysis.txt_height=app_img_result.result_height=app_upload_content.img_height;
-    app_cut_line.showCutLine=true;
+    app_analysis.txt_width=app_upload_content.img_width;
+    app_analysis.txt_height=app_upload_content.img_height;
     app_analysis.shown=true;
-    app_img_result.results='<img src="https://raw.githubusercontent.com/llIllIllIlllIll/SE100-final/master/results.jpg" alt="" />'
+    app_results.shown=true;
+    app_results.result_width=app_upload_content.img_width;
+    app_results.result_height=app_upload_content.img_height;
+    app_results.results='<img src="https://raw.githubusercontent.com/llIllIllIlllIll/SE100-final/master/results.jpg" alt="" />'
 })
 
 var app_analysis=new Vue({
@@ -117,4 +103,14 @@ var app_aboutUS=new Vue({
                 this.content="FTDR"
             }
         }
+})
+
+var app_results=new Vue({
+    el:"#results",
+    data:{
+        shown:false,
+        result_width: 0,
+        result_height: 0,
+        results: "尚未开始识别..."
+    }
 })
