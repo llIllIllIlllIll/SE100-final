@@ -10,16 +10,7 @@ Vue.component("fault",{
     <input type="checkbox" v-on:change="$emit(\'fault\')"></input>\
     </li>'
 })
-var app_header_bar=new Vue({
-    el:'#nav',
-    data:{
-        barList:[
-            {text:"识别"},
-            {text:"历史记录"},
-            {text:"关于"}   
-        ]
-    }
-})
+
 var app_upload_content=new Vue({
     el:'#main',
     data:{
