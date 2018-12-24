@@ -107,3 +107,14 @@ var app_analysis=new Vue({
     }
 })
 
+var app_aboutUS=new Vue({
+        el:"#aboutUs",
+        data:{
+            content:"Our Contact"
+        },
+        methods:{
+            handleClick: function(){
+                this.content="FTDR"
+            }
+        }
+})
