@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Rwrite</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
+    
     <!-- stylesheet -->
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -62,45 +61,52 @@
                             </div>
                         </div>
                     </section>
-    
                 </div>
             </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+        <div id="main" > 
+            <div id="recognize" class="section">
+                <div class="container">
+                        <h2 class="title text-center">识别文字</h2>
+                        <div id = "upload" v-html="uploadContent" v-bind:style="{ width: img_width + 'px', height: img_height + 'px'}">
+                            </div>
+                        <div>   
+                            <label class="upload-label button button-action button-pill button-normal">
+                                <input type="file" id="image" style="display:none" name="image">上传图片</label>
+                            <label class="upload-label button button-action button-pill button-normal">
+                                <input type="checkbox" id="textRst" style="display:none" >识别</label>
+                        </div>
+                        
+                </div>            
+            </div>    
         </div>
-    <!-- //banner -->
-</div>
-
-<div id="main" class="fix-sidebar"> 
-    <div id="recognize" class="section">
-        <div class="container">
-                <h2 class="title text-center">识别文字</h2>
-                <div id = "upload" v-html="uploadContent" v-bind:style="{ width: img_width + 'px', height: img_height + 'px'}">
-                    </div>
-                <div>   
-                    <label class="upload-label button button-action button-pill button-normal">
-                        <input type="file" id="image" style="display:none" name="image">上传图片</label>
-                    <label class="upload-label button button-action button-pill button-normal">
-                        <input type="checkbox" id="textRst" style="display:none" >识别</label>
-                </div>
-                
-        </div>            
-    </div>    
-</div>
-
-<hr id="cut-line" v-if="showCutLine"></hr>
-
-<br>
-<br>
-<br>
-
-<div id="results" class="fix-sidebar">
-    <div id = "img-results" v-html="results" v-bind:style="{width: result_width + 'px', height: result_height + 'px'}">
+        <p style="text-align:right"><font size="3">Click <a href="https://github.com/llIllIllIlllIll/SE100-final.git">here </a>to check codes</font></p>
+        <hr id="cut-line" v-if="showCutLine"></hr>
+        </div>
     </div>
+        <div id="results" class="BackgroundInMain">
+            <br>
+            <br>
+            <div id = "img-results" v-html="results" v-bind:style="{width: result_width + 'px', height: result_height + 'px'}">
+            </div>
 </div>                
-<br>
-<br>
-<br>
+
                 
-<div id="analysis" v-if="shown" class="center"> 
+<div id="analysis" v-if="shown" class="BackgroundInMain"> 
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
     <div id="textArea" v-bind:style="{width: txt_width + 'px', height: txt_height + 'px'}">
         <h3>学生：{{studentName}}</h3>
         <h3>错误分析：</h3>
@@ -123,18 +129,13 @@
         <h3>老师评语：</h3>
         <p>{{'\n'+teacherFeedback}}</p>
     </div>
-    <div align="center">
+    <div align="center"><font size='5'><strong>
         <input id="teacherInput" v-model="teacherFeedback" placeholder="请输入你的评语..." v-bind:style="{width: txt_width + 'px'}">
+    </strong></font>
     </div> 
 </div>
 
-
-<br>
-<br>
-<br>
-<br>
-
-<footer>
+    <footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -175,8 +176,7 @@
         </div>
     </div>
 </footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/index.js"></script>
-
-
 </body>
 </html>
