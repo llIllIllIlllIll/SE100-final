@@ -91,12 +91,15 @@
         </div>
         <p style="text-align:right"><font size="3">Click <a href="https://github.com/llIllIllIlllIll/SE100-final.git">here </a>to check codes</font></p>
         </div>
-    </div>
+</div>
 
-<div id="results" class="BackgroundInMain">
+
+
+<div id="results" v-if="shown" class="BackgroundInMain">
+    <br>
+    <br>
     <div id = "img-results" v-html="results" v-bind:style="{width: result_width + 'px', height: result_height + 'px'}">
     </div>
-            
 </div>                
 
                 
@@ -105,9 +108,11 @@
         <br>
         <br>
     <div id="textArea" v-bind:style="{width: txt_width + 'px', height: txt_height + 'px'}">
+        <font color="white">
         <h3>学生：{{studentName}}</h3>
         <h3>错误分析：</h3>
         <ul>
+            <b>
             <li
                 is="fault"
                 v-for="(analysis, index) in textAnalysis"
@@ -117,14 +122,23 @@
                 v-on:fault="faultRecount(index)"
                 >
             </li>
+            </b>
             <br>
             <button v-on:click= "uploaded = true" class="button button-action button-box button-small">上报选中的{{fault_count}}个识别错误</button>
             <transition name="fade">
                 <p v-if="uploaded">上报成功！</p>
             </transition>
         </ul>
+    
         <h3>老师评语：</h3>
-        <p>{{'\n'+teacherFeedback}}</p>
+        <p>
+        <font color="white">
+            <b>
+            {{'\n'+teacherFeedback}}
+            </b>
+        </font>
+        </p>
+    </font>
     </div>
     <div align="center"><font size='5'><strong>
         <input id="teacherInput" v-model="teacherFeedback" placeholder="请输入你的评语..." v-bind:style="{width: txt_width + 'px'}">
