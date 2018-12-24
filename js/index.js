@@ -14,7 +14,7 @@ Vue.component("fault",{
 var app_upload_content=new Vue({
     el:'#main',
     data:{
-        uploadContent:"<font size='5'><strong>上传要识别的图片..</strong></font>",
+        uploadContent:"<p>上传要识别的图片..</p>",
         img_width:600,
         img_height:380,
         img:new Image()
